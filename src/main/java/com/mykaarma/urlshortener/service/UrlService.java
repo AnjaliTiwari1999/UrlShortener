@@ -134,6 +134,7 @@ public class UrlService {
 		}
 		AvailableHashPool hashPool = availableHashPoolAdapter.fetchAvailableShortUrlHash();
 		if(hashPool == null) {
+			// TODO generate new hash
 			log.error("All hashes have been exhausted. Generate new ones to keep the microservice running.");
 			throw new ShortUrlException(UrlErrorCodes.HASHES_EXHAUSTED, "Unique hashes not available in pool");
 		}
